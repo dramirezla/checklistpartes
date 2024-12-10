@@ -1,7 +1,46 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-import re
+import io
 from collections import Counter
+
+# Función para procesar el archivo PDF
+def procesar_pdf(pdf_file):
+    # Leer el archivo PDF
+    reader = PdfReader(pdf_file)
+    contenido_paginas = []
+    
+    for page in reader.pages:
+        texto = page.extract_text()
+        contenido_paginas.append(texto)
+    
+    # Aquí puedes aplicar tu procesamiento de las páginas y extraer la información que necesites
+    return contenido_paginas
+
+# Crear la interfaz de usuario
+st.title("Sube tu archivo PDF para procesar")
+
+# Subir archivo PDF
+pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
+
+# Si el usuario ha subido un archivo
+if pdf_file is not None:
+    st.write("Archivo subido correctamente")
+
+    # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
+    contenido_paginas = procesar_pdf(pdf_file)
+    
+    for i, pagina in enumerate(contenido_paginas):
+        st.write(f"Página {i + 1}:")
+        st.text(pagina)  # Muestra el texto extraído de la página
+
+    # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
+    if st.button("Procesar PDF"):
+        # Aquí puedes añadir cualquier lógica adicional, como extraer letras o realizar análisis
+        st.write("Procesando el PDF...")
+        # Llama a las funciones que desees ejecutar en tu código
+        # Ejemplo: mostrar frecuencia de letras o algo relacionado
+        st.write("PDF procesado con éxito!")
+
 
 # Cambia el nombre al nombre de tu archivo cargado
 nombre_archivo1 = "5.50 SUPERCOR BOREAL 15MM 183X244 - ANDRES LOPEZ - SEBASTIAN BEDOYA - VIRTUAL.pdf"
