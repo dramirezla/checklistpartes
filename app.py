@@ -76,5 +76,9 @@ for i, parte in enumerate(partes):
 st.write("### Tabla de Frecuencia de las partes seleccionadas")
 
 if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
-    st.write(letras_seleccionadas)
+    letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
+    if letras_seleccionadas_frecuencia:
+        st.write(letras_seleccionadas_frecuencia)
+    else:
+        st.write("No se ha seleccionado ninguna letra.")
 
