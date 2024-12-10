@@ -75,7 +75,7 @@ for i, parte in enumerate(partes):
 # Estilo y colores en la tabla de frecuencias
 st.write("### Tabla de Frecuencia de las partes seleccionadas")
 
-if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
+if st.button("Mostrar Frecuencia de Partes seleccionadas"):
     letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
     if letras_seleccionadas_frecuencia:
         st.dataframe(letras_seleccionadas_frecuencia)
