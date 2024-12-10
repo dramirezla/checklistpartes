@@ -66,9 +66,9 @@ st.dataframe(letras_frecuencia_df)
 
 # Mostrar las partes encontradas en un checklist
 st.write("### Letras capitalizadas encontradas en el contenido:")
-for parte in partes:
-    # Hacer que cada parte sea un checkbox
-    if st.checkbox(f"¿Contiene la letra: {parte}", key=parte):
+for i, parte in enumerate(partes):
+    # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
+    if st.checkbox(f"¿Contiene la letra: {parte}", key=f"parte_{i}"):
         st.markdown(f"<span style='color: green;'>✔ {parte}</span>", unsafe_allow_html=True)
     else:
         st.markdown(f"<span style='color: red;'>❌ {parte}</span>", unsafe_allow_html=True)
