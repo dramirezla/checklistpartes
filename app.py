@@ -9,7 +9,7 @@ import re
 from collections import Counter
 
 # Cambia el nombre al nombre de tu archivo cargado
-nombre_archivo1 = "Complejo.pdf"
+nombre_archivo1 = "5.50 SUPERCOR BOREAL 15MM 183X244 - ANDRES LOPEZ - SEBASTIAN BEDOYA - VIRTUAL.pdf"
 
 # Cargar el PDF
 reader1 = PdfReader(nombre_archivo1)
