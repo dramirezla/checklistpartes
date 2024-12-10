@@ -59,11 +59,44 @@ for pagina in contenido_paginas:
 
 # Mostrar los resultados en Streamlit
 
-# Mostrar la frecuencia de las letras mayúsculas
+# Mostrar la frecuencia de las letras mayúsculas de forma simplificada
 st.write("### Frecuencia de las letras mayúsculas encontradas:")
-st.table(letras_frecuencia.items())
+letras_frecuencia_df = {letra: frecuencia for letra, frecuencia in letras_frecuencia.items()}
+st.dataframe(letras_frecuencia_df)
 
-# Mostrar las partes encontradas
+# Mostrar las partes encontradas en un checklist
 st.write("### Letras capitalizadas encontradas en el contenido:")
-st.write(partes)
+for parte in partes:
+    # Hacer que cada parte sea un checkbox
+    if st.checkbox(f"¿Contiene la letra: {parte}", key=parte):
+        st.markdown(f"<span style='color: green;'>✔ {parte}</span>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"<span style='color: red;'>❌ {parte}</span>", unsafe_allow_html=True)
 
+# Estilo y colores en la tabla de frecuencias
+st.write("### Tabla de Frecuencia con colores:")
+tabla_estilo = f"""
+    <style>
+        .stDataFrame table {{
+            border-collapse: collapse;
+            width: 100%;
+        }}
+        .stDataFrame th, .stDataFrame td {{
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }}
+        .stDataFrame tr:nth-child(even) {{
+            background-color: #f2f2f2;
+        }}
+        .stDataFrame th {{
+            background-color: #4CAF50;
+            color: white;
+        }}
+        .stDataFrame td {{
+            background-color: #f9f9f9;
+        }}
+    </style>
+"""
+st.markdown(tabla_estilo, unsafe_allow_html=True)
+st.table(letras_frecuencia.items())
