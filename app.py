@@ -63,19 +63,22 @@ for pagina in contenido_paginas:
 st.write("### Letras capitalizadas encontradas en el contenido:")
 selected_letras = []  # Lista para almacenar las letras seleccionadas
 
-for i, parte in enumerate(partes):
+for i, parte in enumerate(letras_frecuencia.keys()):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"¿Contiene la letra: {parte}", key=f"parte_{i}"):
         selected_letras.append(parte)
 
 # Agregar un botón para mostrar la tabla de frecuencias de las letras seleccionadas
 if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
-    # Filtrar las frecuencias de las letras seleccionadas
-    letras_seleccionadas_frecuencia = {letra: letras_frecuencia[letra] for letra in selected_letras}
-
-    # Mostrar la frecuencia de las letras seleccionadas
-    st.write("### Frecuencia de las letras seleccionadas:")
-    st.dataframe(letras_seleccionadas_frecuencia)
+    if selected_letras:  # Verificar si hay letras seleccionadas
+        # Filtrar las frecuencias de las letras seleccionadas
+        letras_seleccionadas_frecuencia = {letra: letras_frecuencia[letra] for letra in selected_letras}
+        
+        # Mostrar la frecuencia de las letras seleccionadas
+        st.write("### Frecuencia de las letras seleccionadas:")
+        st.write(letras_seleccionadas_frecuencia)
+    else:
+        st.write("No se ha seleccionado ninguna letra.")
 
 # Estilo y colores en la tabla de frecuencias
 st.write("### Tabla de Frecuencia de todas las letras:")
