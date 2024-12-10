@@ -63,18 +63,21 @@ for pagina in contenido_paginas:
 st.write("### Frecuencia de las partes encontradas:")
 partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
 st.dataframe(partes_frecuencia_df)
+letras_seleccionadas = []
 
 # Mostrar las partes encontradas en un checklist
 st.write("### Partes encontradas en el contenido:")
 for i, parte in enumerate(partes):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"{parte}", key=f"parte_{i}"):
-        print("")
-        ###Condicion para añadir al dataframe
-    else:
-        print("")
-        ###Continue???? o borrar el else??
+        letras_seleccionadas.append(partes)
 
 # Estilo y colores en la tabla de frecuencias
 st.write("### Tabla de Frecuencia de las partes seleccionadas")
+
+if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
+    # Contar las frecuencias de las letras seleccionadas
+    letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
+    if letras_seleccionadas_frecuencia:
+        st.dataframe(letras_seleccionadas_frecuencia)
 
