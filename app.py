@@ -70,7 +70,7 @@ st.write("### Partes encontradas en el contenido:")
 for i, parte in enumerate(partes):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"{parte}", key=f"parte_{i}"):
-        letras_seleccionadas.append(partes)
+        letras_seleccionadas.append(parte)
 
 # Estilo y colores en la tabla de frecuencias
 st.write("### Tabla de Frecuencia de las partes seleccionadas")
