@@ -69,8 +69,10 @@ st.write("### Partes encontradas en el contenido:")
 for i, parte in enumerate(partes):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"{parte}", key=f"parte_{i}"):
+        print("")
         ###Condicion para añadir al dataframe
     else:
+        print("")
         ###Continue???? o borrar el else??
 
 # Estilo y colores en la tabla de frecuencias
