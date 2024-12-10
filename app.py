@@ -79,5 +79,5 @@ if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
     # Contar las frecuencias de las letras seleccionadas
     letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
     if letras_seleccionadas_frecuencia:
-        st.dataframe(letras_seleccionadas_frecuencia)
+        st.write(letras_seleccionadas_frecuencia)
 
