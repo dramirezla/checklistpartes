@@ -31,8 +31,8 @@ if pdf_file is not None:
     contenido_paginas = procesar_pdf(pdf_file)
     
     for i, pagina in enumerate(contenido_paginas):
-        st.write(f"Página {i + 1}:")
-        st.text(pagina)  # Muestra el texto extraído de la página
+        print(f"Página {i + 1}:")
+        print(pagina)  # Muestra el texto extraído de la página
 
     # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
     ##############Logica
