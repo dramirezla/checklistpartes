@@ -1,5 +1,5 @@
-!pip install PyPDF2
-!pip install ipywidgets
+#!pip install PyPDF2
+#!pip install ipywidgets
 
 
 from ipywidgets import Checkbox, VBox, Button, Output
