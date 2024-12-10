@@ -59,22 +59,26 @@ for pagina in contenido_paginas:
 
 # Mostrar los resultados en Streamlit
 
-# Mostrar la frecuencia de las letras mayúsculas de forma simplificada
-st.write("### Frecuencia de las letras mayúsculas encontradas:")
-letras_frecuencia_df = {letra: frecuencia for letra, frecuencia in letras_frecuencia.items()}
-st.dataframe(letras_frecuencia_df)
-
 # Mostrar las partes encontradas en un checklist
 st.write("### Letras capitalizadas encontradas en el contenido:")
+selected_letras = []  # Lista para almacenar las letras seleccionadas
+
 for i, parte in enumerate(partes):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"¿Contiene la letra: {parte}", key=f"parte_{i}"):
-        st.markdown(f"<span style='color: green;'>✔ {parte}</span>", unsafe_allow_html=True)
-    else:
-        st.markdown(f"<span style='color: red;'>❌ {parte}</span>", unsafe_allow_html=True)
+        selected_letras.append(parte)
+
+# Agregar un botón para mostrar la tabla de frecuencias de las letras seleccionadas
+if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
+    # Filtrar las frecuencias de las letras seleccionadas
+    letras_seleccionadas_frecuencia = {letra: letras_frecuencia[letra] for letra in selected_letras}
+
+    # Mostrar la frecuencia de las letras seleccionadas
+    st.write("### Frecuencia de las letras seleccionadas:")
+    st.dataframe(letras_seleccionadas_frecuencia)
 
 # Estilo y colores en la tabla de frecuencias
-st.write("### Tabla de Frecuencia con colores:")
+st.write("### Tabla de Frecuencia de todas las letras:")
 tabla_estilo = f"""
     <style>
         .stDataFrame table {{
