@@ -37,8 +37,8 @@ for i, page in enumerate(reader.pages):
 contenido_paginas.remove(contenido_paginas[0])
 
 contenido_formateado = []  # Lista para almacenar el contenido modificado
-partes = []  # Lista para almacenar las letras capitalizadas
-letras_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
+partes = []  # Lista para almacenar las partes capitalizadas
+partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
 
 for pagina in contenido_paginas:
     # Dividir el contenido usando "Kerf" como punto de corte
@@ -48,24 +48,24 @@ for pagina in contenido_paginas:
     contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
     contenido_formateado.append(contenido_modificado)
 
-    # Buscar todas las letras capitalizadas en el contenido modificado
-    letras_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
+    # Buscar todas las partes capitalizadas en el contenido modificado
+    partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
 
-    # Añadir las letras capitalizadas a la lista 'partes'
-    partes.extend(letras_mayusculas)
+    # Añadir las partes capitalizadas a la lista 'partes'
+    partes.extend(partes_mayusculas)
 
-    # Contar las letras mayúsculas y actualizar el diccionario de frecuencias
-    letras_frecuencia.update(letras_mayusculas)
+    # Contar las partes mayúsculas y actualizar el diccionario de frecuencias
+    partes_frecuencia.update(partes_mayusculas)
 
 # Mostrar los resultados en Streamlit
 
-# Mostrar la frecuencia de las letras mayúsculas de forma simplificada
-st.write("### Frecuencia de las letras mayúsculas encontradas:")
-letras_frecuencia_df = {letra: frecuencia for letra, frecuencia in letras_frecuencia.items()}
-st.dataframe(letras_frecuencia_df)
+# Mostrar la frecuencia de las partes mayúsculas de forma simplificada
+st.write("### Frecuencia de las partes mayúsculas encontradas:")
+partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
+st.dataframe(partes_frecuencia_df)
 
 # Mostrar las partes encontradas en un checklist
-st.write("### Letras capitalizadas encontradas en el contenido:")
+st.write("### partes capitalizadas encontradas en el contenido:")
 for i, parte in enumerate(partes):
     # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
     if st.checkbox(f"¿Contiene la letra: {parte}", key=f"parte_{i}"):
@@ -99,4 +99,4 @@ tabla_estilo = f"""
     </style>
 """
 st.markdown(tabla_estilo, unsafe_allow_html=True)
-st.table(letras_frecuencia.items())
+st.table(partes_frecuencia.items())
