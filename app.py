@@ -2,6 +2,7 @@ import streamlit as st
 from PyPDF2 import PdfReader
 import io
 from collections import Counter
+import re
 
 # Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
