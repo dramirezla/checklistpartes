@@ -78,7 +78,7 @@ st.write("### Tabla de Frecuencia de las partes seleccionadas")
 if st.button("Mostrar Frecuencia de Letras Seleccionadas"):
     letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
     if letras_seleccionadas_frecuencia:
-        st.write(letras_seleccionadas_frecuencia)
+        st.dataframe(letras_seleccionadas_frecuencia)
     else:
         st.write("No se ha seleccionado ninguna letra.")
 
