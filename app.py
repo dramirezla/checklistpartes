@@ -2,7 +2,7 @@
 #!pip install ipywidgets
 
 
-from ipywidgets import Checkbox, VBox, Button, Output
+#from ipywidgets import Checkbox, VBox, Button, Output
 from IPython.display import display
 from PyPDF2 import PdfReader
 import re
