@@ -1,0 +1,521 @@
+Parts
+Part #,Description,Copies,Width,Length,Material Name,Can Rotate,Banding,Diagram #s,Notes,Rough Cut Width,Rough Cut Length,Final Cut Width,Final Cut Length
+ A,perforacion por 243 canto,10,"50,0cm","243,0cm", 182X243 ,No,2W-2L,"A1, A2",,"50,0cm","243,0cm","50,0cm","243,0cm"
+ B,,5,"40,0cm","240,0cm", 182X243 ,No,None,"A2, A3",,"40,0cm","240,0cm","40,0cm","240,0cm"
+ 
+ 
+ 
+Labor
+[x],Item ID,Sub-Assembly,Labor Type,Description,Hours,<Info>,Notes
+ 
+ 
+ 
+Other Items
+[x],Item #,Sub-Assembly,Category,Item,Description,Quantity,Units,Bin,<Info>,Notes
+ 
+ 
+ 
+B.O.M.: Cost Summary
+Item,Amount
+Rough Lumber,"$ 0,00"
+Dimensioned Lumber,"$ 0,00"
+Sheet Goods,"$ 0,00"
+Edge Banding,"$ 0,00"
+Other Items,"$ 0,00"
+"Labor Costs (0,0 hours)","$ 0,00"
+,
+Project Total,"$ 0,00"
+ 
+ 
+ 
+B.O.M.: Rough Lumber
+[x],Material Name,Nominal Size,Unit Cost,Units,Yield,Quantity,From Inv.,To Buy,Total Cost,Vendor,Bin
+ 
+ 
+ 
+B.O.M.: Dimensioned Lumber
+[x],Material Name,Nominal Size,Actual Width,Nom. Width,Length,Unit Cost,Units,Quantity,From Inv.,To Buy,Total Cost,Vendor,Bin
+ 
+ 
+ 
+B.O.M.: Sheet Goods
+[x],Material Name,Thick,Width,Length,Unit Cost,Units,Quantity,From Inv.,To Buy,Total Cost,Vendor,Bin
+No, 182X243 ,"1,9cm","91,0cm","243,0cm","$ 0,00",Sheets,1,1,0,"$ 0,00",,
+No, 182X243 ,"1,9cm","182,0cm","243,0cm","$ 0,00",Sheets,4,4,0,"$ 0,00",,
+ 
+ 
+ 
+B.O.M.: Banding
+[x],Banding Material,Code,Unit Cost,Units,Quantity,Total Cost,Vendor,Bin
+No,RIGIDO 19MM,2 (1),"$ 0,00",Metre,"58,60","$ 0,00",,
+ 
+ 
+ 
+B.O.M.: Other Items
+[x],Category,Item,Unit Cost,Units,Quantity,Total Cost,Vendor,Bin
+ 
+ 
+ 
+B.O.M.: Labor
+[x],Labor Type,Hourly Rate,Hours,Total Cost
+ 
+ 
+ 
+ 182X243 ,"1,9cm x 182,0cm x 243,0cm"
+Layout Qty:,2
+Grain: Horizontal
+"Stock Trim: 0,0cm::0,0cm "
+Kerf:,"0,4cm"
+Part Padding:,"0,0cm"
+Vendor: 
+Bin: 
+--------------------------------------------
+Part #,Sub-Assembly,Description,Copies in Layout,Thick,Final Cut Y,Final Cut X,Rough Y,Rough X,Banding,<Info>
+A,,perforacion por 243 canto,3,"1,9cm","50,0cm","243,0cm","50,0cm","243,0cm",2W-2L,
+ 
+ 
+ 
+ 182X243 ,"1,9cm x 182,0cm x 243,0cm"
+Layout Qty:,2
+Grain: Horizontal
+"Stock Trim: 0,0cm::0,0cm "
+Kerf:,"0,4cm"
+Part Padding:,"0,0cm"
+Vendor: 
+Bin: 
+--------------------------------------------
+Part #,Sub-Assembly,Description,Copies in Layout,Thick,Final Cut Y,Final Cut X,Rough Y,Rough X,Banding,<Info>
+A,,perforacion por 243 canto,2,"1,9cm","50,0cm","243,0cm","50,0cm","243,0cm",2W-2L,
+B,,,2,"1,9cm","40,0cm","240,0cm","40,0cm","240,0cm",None,
+ 
+ 
+ 
+ 182X243 ,"1,9cm x 91,0cm x 243,0cm"
+Layout Qty:,1
+Grain: Horizontal
+"Stock Trim: 0,0cm::0,0cm "
+Kerf:,"0,4cm"
+Part Padding:,"0,0cm"
+Vendor: 
+Bin: 
+--------------------------------------------
+Part #,Sub-Assembly,Description,Copies in Layout,Thick,Final Cut Y,Final Cut X,Rough Y,Rough X,Banding,<Info>
+B,,,1,"1,9cm","40,0cm","240,0cm","40,0cm","240,0cm",None,
+ 
+ 
+ 
+Cherry (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 4,86",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 5,45",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 5,27",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"9/4 (5,1cm)","5,1cm","$ 8,00",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Maple (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 3,17",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 4,24",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 4,00",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Walnut (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 4,29",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 4,55",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 5,05",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Poplar (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 1,82",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 1,97",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"6/4 (3,2cm)","3,2cm","$ 2,15",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 2,19",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"12/4 (7,0cm)","7,0cm","$ 3,22",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Alder (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 3,42",Bd Ft,80%,"5,00",No,Home Center,77,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 4,07",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Ash (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 2,80",Bd Ft,80%,"15,00",Yes,,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 2,58",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 32,90",Cubic Ft.,100%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Aspen (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 1,82",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Basswood (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 2,21",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 2,71",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"12/4 (7,0cm)","7,0cm","$ 3,73",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"16/4 (9,5cm)","9,5cm","$ 4,11",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Beech (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 3,60",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Birch (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 3,23",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 4,40",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Butternut (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 5,31",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Cedar (Red #1) (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 1,73",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Hickory (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1/8"" (0,3cm)","0,3cm","$ 3,00",Sq. Ft.,80%,*,"N/A",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","$ 2,70",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Mahogany (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 5,32",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 5,35",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 5,80",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"12/4 (7,0cm)","7,0cm","$ 6,12",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Maple (Curly) (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 6,22",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+"Oak, Red (Rough Lumber)"
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 4,00",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 3,31",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 4,15",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+"Oak, White (Rough Lumber)"
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 2,79",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","$ 3,30",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 4,69",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+"Oak, White (quartersawn) (Rough Lumber)"
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 4,69",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Padauk (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 5,92",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 6,56",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+"Pine, Eastern White (Rough Lumber)"
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 1,76",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 1,99",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Purpleheart (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 4,44",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","$ 4,95",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Sassafras (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 2,66",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Teak (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","$ 14,37",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Bolivian Rosewood (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1/8"" (0,3cm)","0,3cm","$ 12,55",Sq. Ft.,80%,*,"N/A",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","$ 25,44",Sq. Ft.,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Tiger Maple (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"5/4 (2,5cm)","2,5cm","$ 7,00",Bd Ft,80%,*,"N/A",,,,Yes,Yes,
+ 
+ 
+ 
+Erle (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+ 
+ 
+ 
+Bloodwood (Rough Lumber)
+Nominal Size,Actual Thick.,Unit Cost,Units    ,Yield,Inventory,Can Buy More,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"5/4 (2,5cm)","2,5cm","$ 70,00",Cubic Ft.,85%,"5,00",No,,,,Yes,Yes,
+ 
+ 
+ 
+Red Oak (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","4,4cm","5,7cm","152,4cm","$ 2,44",Lineal Ft.,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","14,6cm","15,9cm","152,4cm","$ 0,40",Lineal Inch,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","18,4cm","19,7cm","152,4cm","$ 0,52",Lineal Inch,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","25,4cm","26,7cm","121,9cm","$ 16,20",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","18,4cm","19,7cm","243,8cm","$ 23,00",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","30,5cm","31,8cm","152,4cm","$ 35,00",Boards,5,No,No,"7,6cm","0,6cm",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","14,0cm","15,2cm","304,8cm","$ 4,91",Lineal Ft.,0,Yes,No,"0,0cm","0,0cm",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","31,8cm","33,0cm","152,4cm","$ 45,00",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"6/4 (3,2cm)","3,2cm","18,4cm","19,7cm","121,9cm","$ 15,00",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"8/4 (4,4cm)","4,4cm","14,6cm","15,9cm","152,4cm","$ 0,99",Lineal Inch,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+Cherry (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","7,0cm","8,3cm","152,4cm","$ 0,27",Lineal Inch,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"4/4 (1,9cm)","1,9cm","9,5cm","10,2cm","243,8cm","$ 0,45",Lineal Inch,*,"N/A",No,"7,6cm","0,0cm",,,,Yes,Yes,
+"9/4 (5,1cm)","5,1cm","7,6cm","8,9cm","228,6cm","$ 9,00",Bd Ft,*,"N/A",No,"7,6cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+Cherry Dowel (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","1,9cm","3,2cm","91,4cm","$ 3,99",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"5/4 (2,5cm)","2,5cm","2,5cm","3,8cm","91,4cm","$ 4,99",Boards,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+Maple (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","8,9cm","10,2cm","304,8cm","$ 2,51",Lineal Ft.,*,"N/A",No,"7,6cm","0,0cm",ABC Lumber,12,"10,0%",Yes,Yes,
+"4/4 (1,9cm)","1,9cm","14,0cm","15,2cm","304,8cm","$ 3,48",Lineal Ft.,*,"N/A",No,"7,6cm","0,0cm",Home Center,10,"20,0%",Yes,Yes,
+ 
+ 
+ 
+Birch (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"4/4 (1,9cm)","1,9cm","12,7cm","14,0cm","243,8cm","$ 20,00",Boards,*,"N/A",No,"7,6cm","0,6cm",ABC Lumber,3F,,Yes,Yes,
+ 
+ 
+ 
+Mahogany (Dimensioned Lumber)
+Nominal Size,Actual Thick.,Actual Width,Nom. Width,Length,Unit Cost,Units,Inv. (Boards),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"8/4 (4,4cm)","4,4cm","14,0cm","15,2cm","152,4cm","$ 6,73",Bd Ft,3,Yes,No,"7,6cm","0,6cm",ABC Lumber,5G,"20,0%",Yes,Yes,
+ 
+ 
+ 
+122X280 (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","121,0cm","279,0cm","$ 13,99",Sheets,1,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+153X244 (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","152,0cm","243,0cm","$ 89,83",Sheets,*,"N/A",No,"0,0cm","0,0cm",ABC Lumber,3R7,,Yes,Yes,
+ 
+ 
+ 
+183X244 (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,5cm","182,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,5cm","91,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","121,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","121,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","243,0cm","$ 60,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+215X244 (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","214,0cm","243,0cm","$ 28,91",Sheets,*,"N/A",No,"2,5cm","2,5cm",ABC Lumber,9E,"20,0%",Yes,Yes,
+ 
+ 
+ 
+122X244 (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","60,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","121,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+RETAL (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","30,0cm","30,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+215X244 (1) (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","214,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","214,0cm","122,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","107,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","107,0cm","121,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+ 182X243  (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","91,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","121,5cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+183X244 (1) (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","182,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","121,5cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","121,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+183X244 (2) (Sheet Goods)
+Actual Thick.,Width,Length,Unit Cost,Units,Inv. (Sheets),Can Buy More,Off-Cut,LR Trim,TB Trim,Vendor,Bin,Markup,Tax 1,Tax 2,Notes
+"1,9cm","182,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",Yes,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","243,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","91,0cm","121,5cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+"1,9cm","182,0cm","121,0cm","$ 0,00",Sheets,*,"N/A",No,"0,0cm","0,0cm",,,,Yes,Yes,
+ 
+ 
+ 
+Edge Banding
+Banding Material,Code,Units      ,Unit Cost,Thick. Decr.,Overhang,<Height>,<Thickness>,Vendor,Bin,Markup,Tax 1,Tax 2,Roll,Notes
+CANTO FLEXIBLE 19 MM,1,Metre,"$ 1,00","2,5cm","2,5cm","1,9cm","2,5cm",ABC Lumber,,,Yes,Yes,No,
+CANTO FLEXIBLE 19MM,1 (2),Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",,,,Yes,Yes,No,
+CANTO FLEXIBLE 33 MM,3,Metre,"$ 0,25","0,0cm","5,1cm","0,0cm","0,0cm",ABC Lumber,B3,"20,0%",Yes,Yes,No,
+CANTO RIG 19MM,,Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",,,,Yes,Yes,No,
+CANTO RIGIDO,02,Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",,,,Yes,No,No,
+CANTO RIGIDO 19MM,2,Metre,"$ 0,25","0,0cm","2,5cm","1,9cm","0,0cm",Home Center,,,Yes,Yes,No,
+CANTO RIGIDO 33MM,4,Metre,"$ 0,00","0,0cm","5,1cm","0,0cm","0,0cm",ABC Lumber,,"20,0%",Yes,Yes,No,
+FLEXIBLE 19MM,1 (1),Metre,"$ 2.800,00","0,0cm","0,0cm","0,0cm","0,0cm",ABC Lumber,,,Yes,Yes,No,
+FLEXIBLE 33,3 (1),Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",,,,Yes,No,No,
+FLEXIBLE 33MM,3 (2),Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",ABC Lumber,B3,"20,0%",Yes,Yes,No,
+RIGIDO 19MM,2 (1),Metre,"$ 0,00","0,0cm","0,0cm","0,0cm","0,0cm",,,,No,No,No,
+RIGIDO 33MM,4 (1),Metre,"$ 1,00","0,0cm","0,0cm","0,0cm","0,0cm",ABC Lumber,,"20,0%",Yes,Yes,No,
+ 
+ 
+ 
+Other Items Category:Hardware
+Unit Cost,Units      ,Vendor,Bin,Markup,Tax 1,Tax 2,Item Name,Notes
+"$ 4,50",Each,,,,Yes,Yes,Cherry Pulls,
+"$ 4,79",Each,ABC Lumber,55,"15,0%",Yes,Yes,Drawer Pull - Shell motif (brass),
+"$ 23,49",Pair,,,,Yes,Yes,"Full Extension drawer slide (14"")",
+"$ 8,00",Set,,,,Yes,Yes,Glass drawer pulls,
+"$ 8,95",Pair,,,,Yes,Yes,Hinges,
+"$ 3,69",Each,,,,Yes,Yes,"Knob - Shell motif (brass) - 1 1/4 """,
+"$ 2,39",Pair,,,,Yes,Yes,"Shaker Knobs - 7/8"" Cherry",
+"$ 1,49",Box,,,,Yes,Yes,"Steel cut nails - 1 1/2""",
+ 
+ 
+ 
+Other Items Category:Finishing Supplies
+Unit Cost,Units      ,Vendor,Bin,Markup,Tax 1,Tax 2,Item Name,Notes
+"$ 15,99",Qt.,,,,Yes,Yes,"Poly/Oil Finish (lg)",
+"$ 10,99",Pint,,,,Yes,Yes,"Poly/Oil Finish (small)",
+"$ 12,99",Qt.,,,,Yes,Yes,Wood filler,
+ 
+ 
+ 
+Other Items Category:Joinery
+Unit Cost,Units      ,Vendor,Bin,Markup,Tax 1,Tax 2,Item Name,Notes
+"$ 5,00",Bag,,,,Yes,Yes,Biscuits #20,
+"$ 8,00",Box,,,,Yes,Yes,Pocket screws,
+ 
+ 
+ 
+Other Items Category:[Not Categorized]
+Unit Cost,Units      ,Vendor,Bin,Markup,Tax 1,Tax 2,Item Name,Notes
+ 
+ 
+ 
+,Cost,Markup,Pct Markup,Price,Pct Total
+Milled Materials,,,,,
+    Rough-milled lumber,"$ 0,00","$ 0,00",,"$ 0,00",
+    Dimensioned lumber,"$ 0,00","$ 0,00",,"$ 0,00",
+    Sheet goods,"$ 0,00","$ 0,00",,"$ 0,00",
+    Edge banding,"$ 0,00","$ 0,00",,"$ 0,00",
+    Sub-total,"$ 0,00","$ 0,00",,"$ 0,00",
+,,,,,
+Other Items,,,,,
+    Sub-total,"$ 0,00","$ 0,00",,"$ 0,00",
+,,,,,
+Total Materials,"$ 0,00","$ 0,00",,"$ 0,00",
+,,,,,
+Labor,,,,,
+    Sub-total,"$ 0,00","$ 0,00",,"$ 0,00",
+,,,,,
+Materials and Labor,"$ 0,00","$ 0,00",,"$ 0,00",
+,,,,,
+Indirect Costs,,,,,
+    Overhead Fixed amount,,,,"$ 0,00",
+    Contingency Fixed amount,,,,"$ 0,00",
+    Profit Fixed amount,,,,"$ 0,00",
+    Sub-total,,,,"$ 0,00",
+,,,,,
+Shipping and handling: Fixed amount,,,,"$ 0,00",
+,,,,,
+Price excluding taxes,,,,"$ 0,00","100,0%"
+,,,,,
+ (0%),,,,"$ 0,00",
+,,,,,
+Price including taxes,,,,"$ 0,00",
+ 
+ 
+ 
+Edge-Banding Parts Recap
+Part #,Component,Sub-Assembly,Description,Substrate,Part Thick.,Part Qty,Part Size,Edges,Banding Code,{B} Items
+A,,,perforacion por 243 canto, 182X243 ,"1,9cm",10,"50,0cm x 243,0cm",FBLR,2 (1),"B1, B2"
+ 
+ 
+ 
+Edge-Banding Requirements
+{B} Item,Total Qty,Banding Material,Banding Code,Bin,<Height>,<Thick.>,Length,With Overhang
+B2,20,RIGIDO 19MM,2 (1),,"0,0cm","0,0cm","243,0cm","243,0cm"
+B1,20,RIGIDO 19MM,2 (1),,"0,0cm","0,0cm","50,0cm","50,0cm"
+ 
+ 
+ 
