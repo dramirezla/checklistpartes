@@ -1,9 +1,4 @@
-#!pip install PyPDF2
-#!pip install ipywidgets
-
-
-#from ipywidgets import Checkbox, VBox, Button, Output
-# from IPython.display import display
+import streamlit as st
 from PyPDF2 import PdfReader
 import re
 from collections import Counter
@@ -15,7 +10,7 @@ nombre_archivo1 = "5.50 SUPERCOR BOREAL 15MM 183X244 - ANDRES LOPEZ - SEBASTIAN 
 reader1 = PdfReader(nombre_archivo1)
 
 # Extraer contenido página por página
-contenido_paginas1= []
+contenido_paginas1 = []
 for x, page in enumerate(reader1.pages):
     texto1 = page.extract_text()
     contenido_paginas1.append(texto1)
@@ -55,27 +50,20 @@ for pagina in contenido_paginas:
 
     # Buscar todas las letras capitalizadas en el contenido modificado
     letras_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-    #letras_mayusculas1 = re.findall(r'[A-Z]:', contenido_modificado)
-    #letras_mayusculas = re.findall(r'[A-Z][A-Z]:', contenido_modificado)
 
     # Añadir las letras capitalizadas a la lista 'partes'
     partes.extend(letras_mayusculas)
-    #partes.extend(letras_mayusculas)
 
     # Contar las letras mayúsculas y actualizar el diccionario de frecuencias
     letras_frecuencia.update(letras_mayusculas)
-    #letras_frecuencia.update(letras_mayusculas)
 
-
-    # Mostrar el contenido modificado
-    print("")
-    print(contenido_modificado)
+# Mostrar los resultados en Streamlit
 
 # Mostrar la frecuencia de las letras mayúsculas
-print("\nFrecuencia de partes encontradas:")
-for letra, frecuencia in letras_frecuencia.items():
-    print(f"{letra}: {frecuencia}")
+st.write("### Frecuencia de las letras mayúsculas encontradas:")
+st.table(letras_frecuencia.items())
 
-# Mostrar las partes  encontradas
-print("\nPartes encontradas:")
-print(partes)
+# Mostrar las partes encontradas
+st.write("### Letras capitalizadas encontradas en el contenido:")
+st.write(partes)
+
