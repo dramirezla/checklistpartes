@@ -68,7 +68,7 @@ if pdf_file is not None:
     
     # Mostrar las partes encontradas en un checklist
     st.write("### Partes encontradas en el contenido:")
-    print(partes)
+    st.write(partes)
     for i, parte in enumerate(partes):
         # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
         if st.checkbox(f"{parte}", key=f"parte_{i}"):
