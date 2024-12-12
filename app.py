@@ -69,7 +69,7 @@ if pdf_file is not None:
     letras_seleccionadas = []
     
     # Mostrar las partes encontradas en un checklist
-    st.write(dict)
+    print(dict)
     st.write("### Partes encontradas en el contenido:")
     for i, parte in enumerate(partes):
         if parte in dict[i]:
