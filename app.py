@@ -89,8 +89,9 @@ if pdf_file is not None:
     if st.button("Mostrar Frecuencia de Partes seleccionadas"):
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
         if letras_seleccionadas_frecuencia:
+            st.write("### Tabla de Frecuencia de las partes seleccionadas")
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
 
-        st.write("### Tabla de Frecuencia de las partes seleccionadas")
+        
