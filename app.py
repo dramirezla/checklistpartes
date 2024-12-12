@@ -38,25 +38,31 @@ if pdf_file is not None:
     # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
     ##############Logica
     contenido_formateado = []  # Lista para almacenar el contenido modificado
-    partes = []  # Lista para almacenar las partes capitalizadas
+    partes_por_pagina = []  # Lista para almacenar las partes encontradas por cada página
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
     
-    for layout, pagina in enumerate(contenido_paginas):
+    for pagina in contenido_paginas:
+        # Inicializamos una lista para almacenar las partes de la página actual
+        partes_pagina = []
+        
         # Dividir el contenido usando "Kerf" como punto de corte
-        partes_pagina = pagina.split("Kerf: ", 1)  # Dividir en dos partes; antes y después de "Kerf"
+        partes_pagina_dividida = pagina.split("Kerf: ", 1)  # Dividir en dos partes; antes y después de "Kerf"
     
         # Obtener todo el contenido después de "Kerf"
-        contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
+        contenido_modificado = partes_pagina_dividida[1] if len(partes_pagina_dividida) > 1 else ""
         contenido_formateado.append(contenido_modificado)
     
         # Buscar todas las partes capitalizadas en el contenido modificado
         partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
         
-        # Añadir las partes capitalizadas a la lista 'partes'
-        partes.extend(partes_mayusculas)
-    
-        # Contar las partes mayúsculas y actualizar el diccionario de frecuencias
+        # Añadir las partes capitalizadas a la lista de la página
+        partes_pagina.extend(partes_mayusculas)
+        
+        # Actualizar la frecuencia de las partes mayúsculas
         partes_frecuencia.update(partes_mayusculas)
+        
+        # Agregar la lista de partes de la página a la lista general
+        partes_por_pagina.append(partes_pagina)
     
     # Mostrar los resultados en Streamlit
     
@@ -64,15 +70,17 @@ if pdf_file is not None:
     st.write("### Frecuencia de las partes encontradas (Layout 0):")
     partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
     st.dataframe(partes_frecuencia_df)
+    
     letras_seleccionadas = []
     
-    # Mostrar las partes encontradas en un checklist
-    st.write("### Partes encontradas en el contenido:")
-    st.write(partes)
-    for i, parte in enumerate(partes):
-        # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
-        if st.checkbox(f"{parte}", key=f"parte_{i}"):
-            letras_seleccionadas.append(parte)
+    # Mostrar las partes encontradas en un checklist por página
+    for pagina_num, partes in enumerate(partes_por_pagina):
+        st.write(f"### Partes encontradas en la Página {pagina_num + 1}:")
+        
+        for i, parte in enumerate(partes):
+            # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
+            if st.checkbox(f"{parte}", key=f"parte_{pagina_num}_{i}"):
+                letras_seleccionadas.append(parte)
     
     # Estilo y colores en la tabla de frecuencias
     st.write("### Tabla de Frecuencia de las partes seleccionadas")
