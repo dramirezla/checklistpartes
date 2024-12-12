@@ -56,10 +56,46 @@ if pdf_file is not None:
 
         letras_seleccionadas_por_pagina.append(letras_seleccionadas)
 
-    # Mostrar resumen de selección
-    st.write("### Resumen de letras seleccionadas:")
-    for indice, letras_seleccionadas in enumerate(letras_seleccionadas_por_pagina):
-        if letras_seleccionadas:
-            st.write(f"Página {indice + 1}: {', '.join(letras_seleccionadas)}")
+    # Mostrar resultados en DataFrame
+    contenido_formateado = []  # Lista para almacenar el contenido modificado
+    partes = []  # Lista para almacenar las partes capitalizadas
+    partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
+
+    for pagina in contenido_paginas:
+        # Dividir el contenido usando "Kerf" como punto de corte
+        partes_pagina = pagina.split("Kerf: ", 1)
+        contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
+        contenido_formateado.append(contenido_modificado)
+
+        # Buscar todas las partes capitalizadas en el contenido modificado
+        partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
+        
+        # Añadir las partes capitalizadas a la lista 'partes'
+        partes.extend(partes_mayusculas)
+        
+        # Contar las partes mayúsculas y actualizar el diccionario de frecuencias
+        partes_frecuencia.update(partes_mayusculas)
+
+    # Mostrar los resultados en Streamlit
+    st.write("### Frecuencia de las partes encontradas:")
+    partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
+    st.dataframe(partes_frecuencia_df)
+
+    letras_seleccionadas = []
+    
+    # Mostrar las partes encontradas en un checklist
+    st.write("### Partes encontradas en el contenido:")
+    for i, parte in enumerate(partes):
+        # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
+        if st.checkbox(f"{parte}", key=f"parte_{i}"):
+            letras_seleccionadas.append(parte)
+    
+    # Estilo y colores en la tabla de frecuencias
+    st.write("### Tabla de Frecuencia de las partes seleccionadas")
+    
+    if st.button("Mostrar Frecuencia de Partes seleccionadas"):
+        letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
+        if letras_seleccionadas_frecuencia:
+            st.dataframe(letras_seleccionadas_frecuencia)
         else:
-            st.write(f"Página {indice + 1}: No se seleccionaron letras.")
+            st.write("No se ha seleccionado ninguna letra.")
