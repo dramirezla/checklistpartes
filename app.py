@@ -32,7 +32,7 @@ if pdf_file is not None:
     contenido_paginas = procesar_pdf(pdf_file)
     
     for i, pagina in enumerate(contenido_paginas):
-        print(f"Página {i + 1}:")
+        print(f"Página {i}:") # layout
         print(pagina)  # Muestra el texto extraído de la página
 
     # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
@@ -40,8 +40,9 @@ if pdf_file is not None:
     contenido_formateado = []  # Lista para almacenar el contenido modificado
     partes = []  # Lista para almacenar las partes capitalizadas
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
+    dict = []
     
-    for pagina in contenido_paginas:
+    for layout, pagina in enumerate(contenido_paginas):
         # Dividir el contenido usando "Kerf" como punto de corte
         partes_pagina = pagina.split("Kerf: ", 1)  # Dividir en dos partes; antes y después de "Kerf"
     
@@ -51,7 +52,8 @@ if pdf_file is not None:
     
         # Buscar todas las partes capitalizadas en el contenido modificado
         partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-    
+        dict.append(partes_mayusculas)
+        
         # Añadir las partes capitalizadas a la lista 'partes'
         partes.extend(partes_mayusculas)
     
@@ -61,7 +63,7 @@ if pdf_file is not None:
     # Mostrar los resultados en Streamlit
     
     # Mostrar la frecuencia de las partes mayúsculas de forma simplificada
-    st.write("### Frecuencia de las partes encontradas:")
+    st.write("### Frecuencia de las partes encontradas (Layout 0):")
     partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
     st.dataframe(partes_frecuencia_df)
     letras_seleccionadas = []
@@ -69,6 +71,9 @@ if pdf_file is not None:
     # Mostrar las partes encontradas en un checklist
     st.write("### Partes encontradas en el contenido:")
     for i, parte in enumerate(partes):
+        if parte in dict[i]:
+            st.write(f"Layout {i+1}")
+            dict[i] = []
         # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
         if st.checkbox(f"{parte}", key=f"parte_{i}"):
             letras_seleccionadas.append(parte)
