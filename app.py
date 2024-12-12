@@ -40,7 +40,6 @@ if pdf_file is not None:
     contenido_formateado = []  # Lista para almacenar el contenido modificado
     partes = []  # Lista para almacenar las partes capitalizadas
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
-    dict = []
     
     for layout, pagina in enumerate(contenido_paginas):
         # Dividir el contenido usando "Kerf" como punto de corte
@@ -52,8 +51,6 @@ if pdf_file is not None:
     
         # Buscar todas las partes capitalizadas en el contenido modificado
         partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-        if layout > 0:
-            dict.append(partes_mayusculas)
         
         # Añadir las partes capitalizadas a la lista 'partes'
         partes.extend(partes_mayusculas)
@@ -71,11 +68,8 @@ if pdf_file is not None:
     
     # Mostrar las partes encontradas en un checklist
     st.write("### Partes encontradas en el contenido:")
+    print(partes)
     for i, parte in enumerate(partes):
-        if parte in dict[i]:
-            st.write(f"Layout {i}")
-            dict[i] = []
-            print(dict)
         # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
         if st.checkbox(f"{parte}", key=f"parte_{i}"):
             letras_seleccionadas.append(parte)
