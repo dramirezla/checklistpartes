@@ -49,9 +49,18 @@ if pdf_file is not None:
         st.write(f"**Página {indice + 1}**")
         letras_seleccionadas = []
 
-        for i, letra in enumerate(letras_pagina):
-            # Checkbox única para cada letra
-            if st.checkbox(f"{letra}", key=f"pagina_{indice}_letra_{i}"):
+        # Dividir la lista de letras en bloques de 10 para la paginación
+        bloques_por_pagina = [letras_pagina[i:i + 10] for i in range(0, len(letras_pagina), 10)]
+        
+        # Paginación
+        pagina_actual = st.selectbox(
+            f"Selecciona un bloque de letras en la Página {indice + 1}", 
+            range(len(bloques_por_pagina)), 
+            index=0
+        )
+
+        for letra in bloques_por_pagina[pagina_actual]:
+            if st.checkbox(f"{letra}", key=f"pagina_{indice}_letra_{letras_pagina.index(letra)}"):
                 letras_seleccionadas.append(letra)
 
         letras_seleccionadas_por_pagina.append(letras_seleccionadas)
