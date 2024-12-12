@@ -1,8 +1,7 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-import io
-from collections import Counter
-import re
+import base64
+from io import BytesIO
 
 # Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
@@ -17,25 +16,35 @@ def procesar_pdf(pdf_file):
     # Aquí puedes aplicar tu procesamiento de las páginas y extraer la información que necesites
     return contenido_paginas
 
+# Función para convertir el archivo a base64 para visualización
+def convertir_pdf_a_base64(pdf_file):
+    pdf_bytes = pdf_file.read()
+    base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
+    return base64_pdf
+
 # Crear la interfaz de usuario
 st.title("Sube tu archivo PDF para procesar")
 
 # Subir archivo PDF
 pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 
-# Si el usuario ha subido un archivo
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
-
-    # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
+    
+    # Procesar y mostrar el contenido extraído del PDF
     contenido_paginas = procesar_pdf(pdf_file)
     
+    st.write("### Contenido extraído:")
     for i, pagina in enumerate(contenido_paginas):
-        print(f"Página {i + 1}:")
-        print(pagina)  # Muestra el texto extraído de la página
+        st.text(f"Página {i + 1}:")
+        st.write(pagina)
 
-    # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
-    ##############Logica
+    # Mostrar el PDF en la interfaz
+    st.write("### Visualización del PDF:")
+    pdf_base64 = convertir_pdf_a_base64(pdf_file)
+    pdf_display = f'<iframe src="data:application/pdf;base64,{pdf_base64}" width="700" height="900" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
     contenido_formateado = []  # Lista para almacenar el contenido modificado
     partes = []  # Lista para almacenar las partes capitalizadas
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
