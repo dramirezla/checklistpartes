@@ -1,4 +1,3 @@
-import streamlit as st
 from PyPDF2 import PdfReader
 import io
 from collections import Counter
@@ -14,6 +13,7 @@ def procesar_pdf(pdf_file):
         texto = page.extract_text()
         contenido_paginas.append(texto)
     
+    # Aquí puedes aplicar tu procesamiento de las páginas y extraer la información que necesites
     return contenido_paginas
 
 # Crear la interfaz de usuario
@@ -26,32 +26,57 @@ pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
 
-    # Procesar el PDF
+    # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
     contenido_paginas = procesar_pdf(pdf_file)
     
-    # Crear columnas para organizar las casillas de verificación
-    num_paginas = len(contenido_paginas)
-    columnas = st.columns(num_paginas)
+    for i, pagina in enumerate(contenido_paginas):
+        print(f"Página {i + 1}:")
+        print(pagina)  # Muestra el texto extraído de la página
+
+    # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
+    ##############Logica
+    contenido_formateado = []  # Lista para almacenar el contenido modificado
+    partes = []  # Lista para almacenar las partes capitalizadas
+    partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
     
-    # Lista para almacenar las letras seleccionadas
+    for pagina in contenido_paginas:
+        # Dividir el contenido usando "Kerf" como punto de corte
+        partes_pagina = pagina.split("Kerf: ", 1)  # Dividir en dos partes; antes y después de "Kerf"
+    
+        # Obtener todo el contenido después de "Kerf"
+        contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
+        contenido_formateado.append(contenido_modificado)
+    
+        # Buscar todas las partes capitalizadas en el contenido modificado
+        partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
+    
+        # Añadir las partes capitalizadas a la lista 'partes'
+        partes.extend(partes_mayusculas)
+    
+        # Contar las partes mayúsculas y actualizar el diccionario de frecuencias
+        partes_frecuencia.update(partes_mayusculas)
+    
+    # Mostrar los resultados en Streamlit
+    
+    # Mostrar la frecuencia de las partes mayúsculas de forma simplificada
+    st.write("### Frecuencia de las partes encontradas:")
+    partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
+    st.dataframe(partes_frecuencia_df)
     letras_seleccionadas = []
     
-    # Iterar sobre las páginas y mostrar las casillas de verificación
-    for i, pagina in enumerate(contenido_paginas):
-        with columnas[i]:
-            st.write(f"### Página {i + 1}")
-            partes_mayusculas = re.findall(r'[A-Z]', pagina)
-            partes_frecuencia = Counter(partes_mayusculas)
-            
-            # Mostrar las letras encontradas en la página
-            for letra, frecuencia in partes_frecuencia.items():
-                if st.checkbox(f"{letra} ({frecuencia} veces)", key=f"letra_{i}_{letra}"):
-                    letras_seleccionadas.append(letra)
+    # Mostrar las partes encontradas en un checklist
+    st.write("### Partes encontradas en el contenido:")
+    for i, parte in enumerate(partes):
+        # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
+        if st.checkbox(f"{parte}", key=f"parte_{i}"):
+            letras_seleccionadas.append(parte)
     
-    # Mostrar la frecuencia de las letras seleccionadas
-    if letras_seleccionadas:
-        st.write("### Frecuencia de las letras seleccionadas:")
+    # Estilo y colores en la tabla de frecuencias
+    st.write("### Tabla de Frecuencia de las partes seleccionadas")
+    
+    if st.button("Mostrar Frecuencia de Partes seleccionadas"):
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
-        st.write(letras_seleccionadas_frecuencia)
-    else:
-        st.write("No se ha seleccionado ninguna letra.")
+        if letras_seleccionadas_frecuencia:
+            st.dataframe(letras_seleccionadas_frecuencia)
+        else:
+            st.write("No se ha seleccionado ninguna letra.")
