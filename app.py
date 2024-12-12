@@ -1,50 +1,41 @@
 import streamlit as st
 from PyPDF2 import PdfReader
-import base64
-from io import BytesIO
+import io
 from collections import Counter
 import re
 
-
-
+# Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
+    # Leer el archivo PDF
     reader = PdfReader(pdf_file)
     contenido_paginas = []
+    
     for page in reader.pages:
         texto = page.extract_text()
         contenido_paginas.append(texto)
+    
+    # Aquí puedes aplicar tu procesamiento de las páginas y extraer la información que necesites
     return contenido_paginas
 
-def convertir_pdf_a_base64(pdf_file):
-    pdf_bytes = pdf_file.read()
-    base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-    return base64_pdf
-
+# Crear la interfaz de usuario
 st.title("Sube tu archivo PDF para procesar")
 
 # Subir archivo PDF
 pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 
+# Si el usuario ha subido un archivo
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
+
+    # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
+    contenido_paginas = procesar_pdf(pdf_file)
     
-    # Mostrar el PDF usando un componente HTML
-    pdf_base64 = convertir_pdf_a_base64(pdf_file)
-    pdf_display = f'<embed src="data:application/pdf;base64,{pdf_base64}" width="700" height="900" type="application/pdf">'
-    st.components.v1.html(pdf_display, height=900)
     for i, pagina in enumerate(contenido_paginas):
-        st.write(f"Página {i + 1}: {pagina}")
-    
-    # Crear un botón para descargar el PDF
-    st.write("### Descargar y visualizar el PDF:")
-    st.download_button(
-        label="Descargar PDF",
-        data=pdf_file,
-        file_name="documento.pdf",
-        mime="application/pdf",
-    )
+        print(f"Página {i + 1}:")
+        print(pagina)  # Muestra el texto extraído de la página
 
-
+    # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
+    ##############Logica
     contenido_formateado = []  # Lista para almacenar el contenido modificado
     partes = []  # Lista para almacenar las partes capitalizadas
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
