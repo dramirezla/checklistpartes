@@ -84,7 +84,7 @@ if pdf_file is not None:
                 letras_seleccionadas.append(parte)
     
     # Estilo y colores en la tabla de frecuencias
-    st.write("### Tabla de Frecuencia de las partes seleccionadas")
+
     
     if st.button("Mostrar Frecuencia de Partes seleccionadas"):
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
@@ -92,3 +92,5 @@ if pdf_file is not None:
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
+
+        st.write("### Tabla de Frecuencia de las partes seleccionadas")
