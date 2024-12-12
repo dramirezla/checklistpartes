@@ -4,21 +4,37 @@ from collections import Counter
 import re
 import streamlit as st
 from pdf2image import convert_from_bytes  # Necesitarás instalar esta librería
+import fitz  # PyMuPDF
 
 # Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
     # Leer el archivo PDF
-    reader = PdfReader(pdf_file)
+    reader = fitz.open(pdf_file)
     contenido_paginas = []
     
-    for page in reader.pages:
-        texto = page.extract_text()
+    for page_num in range(reader.page_count):
+        page = reader.load_page(page_num)  # Cargar la página
+        texto = page.get_text()  # Extraer texto de la página
         contenido_paginas.append(texto)
     
-    # Aquí puedes aplicar tu procesamiento de las páginas y extraer la información que necesites
     return contenido_paginas
 
-# Crear la interfaz de usuario
+# Función para convertir el PDF en imágenes
+def mostrar_pdf_como_imagen(pdf_file):
+    # Abrir el archivo PDF con PyMuPDF
+    pdf_document = fitz.open(pdf_file)
+    
+    # Convertir cada página a imagen
+    pdf_images = []
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)  # Cargar la página
+        pix = page.get_pixmap()  # Convertir la página a imagen
+        img_byte_array = pix.tobytes("png")  # Convertir la imagen a bytes
+        pdf_images.append(img_byte_array)
+    
+    return pdf_images
+
+# Crear la interfaz de usuario en Streamlit
 st.title("Sube tu archivo PDF para procesar")
 
 # Subir archivo PDF
@@ -28,23 +44,18 @@ pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
 
-    # Convertir el archivo PDF en imágenes para visualizarlo
-    pdf_images = convert_from_bytes(pdf_file.read())
+    # Convertir el archivo PDF en imágenes usando PyMuPDF
+    pdf_images = mostrar_pdf_como_imagen(pdf_file)
 
     # Mostrar el PDF como imágenes
     st.write("### Vista previa del PDF")
-    for page_number, image in enumerate(pdf_images):
-        st.image(image, caption=f"Página {page_number + 1}", use_column_width=True)
+    for page_number, img_byte_array in enumerate(pdf_images):
+        st.image(img_byte_array, caption=f"Página {page_number + 1}", use_column_width=True)
 
-    # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
+    # Procesar el contenido del PDF (extraer texto)
     contenido_paginas = procesar_pdf(pdf_file)
     
-    for i, pagina in enumerate(contenido_paginas):
-        print(f"Página {i}:")  # layout
-        print(pagina)  # Muestra el texto extraído de la página
-
-    # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
-    ##############Logica
+    # Aquí va tu lógica para procesar el contenido del PDF
     contenido_formateado = []  # Lista para almacenar el contenido modificado
     partes_por_pagina = []  # Lista para almacenar las partes encontradas por cada página
     partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
@@ -92,8 +103,6 @@ if pdf_file is not None:
                 letras_seleccionadas.append(parte)
     
     # Estilo y colores en la tabla de frecuencias
-
-    
     if st.button("Mostrar Frecuencia de Partes seleccionadas"):
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
         if letras_seleccionadas_frecuencia:
@@ -101,11 +110,3 @@ if pdf_file is not None:
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
-
-    # Botón de descarga para el archivo PDF
-    st.download_button(
-        label="Descargar PDF",
-        data=pdf_file,
-        file_name="archivo.pdf",
-        mime="application/pdf"
-    )
