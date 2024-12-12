@@ -1,3 +1,11 @@
+import streamlit as st
+from PyPDF2 import PdfReader
+import base64
+from io import BytesIO
+from collections import Counter
+import re
+
+# Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
     # Leer el archivo PDF
     reader = PdfReader(pdf_file)
