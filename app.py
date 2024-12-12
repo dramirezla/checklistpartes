@@ -70,12 +70,12 @@ if pdf_file is not None:
     letras_seleccionadas = []
     
     # Mostrar las partes encontradas en un checklist
-    print(dict)
     st.write("### Partes encontradas en el contenido:")
     for i, parte in enumerate(partes):
         if parte in dict[i]:
             st.write(f"Layout {i}")
             dict[i] = []
+            print(dict)
         # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
         if st.checkbox(f"{parte}", key=f"parte_{i}"):
             letras_seleccionadas.append(parte)
