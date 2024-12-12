@@ -50,7 +50,7 @@ if pdf_file is not None:
     # Mostrar el PDF como imágenes
     st.write("### Vista previa del PDF")
     for page_number, img_byte_array in enumerate(pdf_images):
-        st.image(img_byte_array, caption=f"Página {page_number + 1}", use_column_width=True)
+        st.image(img_byte_array, caption=f"Página {page_number + 1}", use_container_width=True)
 
     # Procesar el contenido del PDF (extraer texto)
     contenido_paginas = procesar_pdf(pdf_file)
