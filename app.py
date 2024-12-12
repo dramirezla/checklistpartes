@@ -25,86 +25,33 @@ pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 # Si el usuario ha subido un archivo
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
-    
-    # Procesar el archivo PDF
+
+    # Procesar el PDF
     contenido_paginas = procesar_pdf(pdf_file)
-    contenido_por_pagina = []
-    letras_por_pagina = []
-    letras_seleccionadas_por_pagina = []
-
-    # Procesar cada página
-    for pagina in contenido_paginas:
-        # Dividir usando "Kerf" como punto de corte
-        partes_pagina = pagina.split("Kerf: ", 1)
-        contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
-        contenido_por_pagina.append(contenido_modificado)
-
-        # Buscar letras mayúsculas
-        letras_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-        letras_por_pagina.append(letras_mayusculas)
-
-    # Mostrar checkboxes separadas por página
-    st.write("### Selecciona las partes encontradas por página:")
-    for indice, letras_pagina in enumerate(letras_por_pagina):
-        st.write(f"**Página {indice + 1}**")
-        letras_seleccionadas = []
-
-        # Dividir la lista de letras en bloques de 10 para la paginación
-        bloques_por_pagina = [letras_pagina[i:i + 10] for i in range(0, len(letras_pagina), 10)]
-        
-        # Paginación
-        pagina_actual = st.selectbox(
-            f"Selecciona un bloque de letras en la Página {indice + 1}", 
-            range(len(bloques_por_pagina)), 
-            index=0
-        )
-
-        for letra in bloques_por_pagina[pagina_actual]:
-            if st.checkbox(f"{letra}", key=f"pagina_{indice}_letra_{letras_pagina.index(letra)}"):
-                letras_seleccionadas.append(letra)
-
-        letras_seleccionadas_por_pagina.append(letras_seleccionadas)
-
-    # Mostrar resultados en DataFrame
-    contenido_formateado = []  # Lista para almacenar el contenido modificado
-    partes = []  # Lista para almacenar las partes capitalizadas
-    partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
-
-    for pagina in contenido_paginas:
-        # Dividir el contenido usando "Kerf" como punto de corte
-        partes_pagina = pagina.split("Kerf: ", 1)
-        contenido_modificado = partes_pagina[1] if len(partes_pagina) > 1 else ""
-        contenido_formateado.append(contenido_modificado)
-
-        # Buscar todas las partes capitalizadas en el contenido modificado
-        partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-        
-        # Añadir las partes capitalizadas a la lista 'partes'
-        partes.extend(partes_mayusculas)
-        
-        # Contar las partes mayúsculas y actualizar el diccionario de frecuencias
-        partes_frecuencia.update(partes_mayusculas)
-
-    # Mostrar los resultados en Streamlit
-    st.write("### Frecuencia de las partes encontradas:")
-    partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
-    st.dataframe(partes_frecuencia_df)
-
+    
+    # Crear columnas para organizar las casillas de verificación
+    num_paginas = len(contenido_paginas)
+    columnas = st.columns(num_paginas)
+    
+    # Lista para almacenar las letras seleccionadas
     letras_seleccionadas = []
     
-    # Mostrar las partes encontradas en un checklist
-    st.write("### Partes encontradas en el contenido:")
-    for i, parte in enumerate(partes):
-        # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
-        if st.checkbox(f"{parte}", key=f"parte_{i}"):
-            letras_seleccionadas.append(parte)
+    # Iterar sobre las páginas y mostrar las casillas de verificación
+    for i, pagina in enumerate(contenido_paginas):
+        with columnas[i]:
+            st.write(f"### Página {i + 1}")
+            partes_mayusculas = re.findall(r'[A-Z]', pagina)
+            partes_frecuencia = Counter(partes_mayusculas)
+            
+            # Mostrar las letras encontradas en la página
+            for letra, frecuencia in partes_frecuencia.items():
+                if st.checkbox(f"{letra} ({frecuencia} veces)", key=f"letra_{i}_{letra}"):
+                    letras_seleccionadas.append(letra)
     
-    # Estilo y colores en la tabla de frecuencias
-    st.write("### Tabla de Frecuencia de las partes seleccionadas")
-    
-    if st.button("Mostrar Frecuencia de Partes seleccionadas"):
+    # Mostrar la frecuencia de las letras seleccionadas
+    if letras_seleccionadas:
+        st.write("### Frecuencia de las letras seleccionadas:")
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
-        if letras_seleccionadas_frecuencia:
-            st.dataframe(letras_seleccionadas_frecuencia)
-        else:
-            st.write("No se ha seleccionado ninguna letra.")
+        st.write(letras_seleccionadas_frecuencia)
+    else:
+        st.write("No se ha seleccionado ninguna letra.")
