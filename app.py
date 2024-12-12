@@ -52,7 +52,8 @@ if pdf_file is not None:
     
         # Buscar todas las partes capitalizadas en el contenido modificado
         partes_mayusculas = re.findall(r'[A-Z]', contenido_modificado)
-        dict.append(partes_mayusculas)
+        if layout > 0:
+            dict.append(partes_mayusculas)
         
         # Añadir las partes capitalizadas a la lista 'partes'
         partes.extend(partes_mayusculas)
