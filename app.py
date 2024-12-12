@@ -23,7 +23,7 @@ def convertir_pdf_a_base64(pdf_file):
     return base64_pdf
 
 # Crear la interfaz de usuario
-st.title("Sube tu archivo PDF para procesar")
+st.title("Sube tu archivo PDF para procesar 123")
 
 # Subir archivo PDF
 pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
