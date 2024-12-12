@@ -75,7 +75,8 @@ if pdf_file is not None:
     
     # Mostrar las partes encontradas en un checklist por página
     for pagina_num, partes in enumerate(partes_por_pagina):
-        st.write(f"### Partes encontradas en la Página {pagina_num}:")
+        if pagina_num != 0:
+             st.write(f"### Partes encontradas en la Página {pagina_num}:")
         
         for i, parte in enumerate(partes):
             # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
