@@ -3,7 +3,7 @@ import io
 from collections import Counter
 import re
 import streamlit as st
-
+from pdf2image import convert_from_bytes  # Necesitarás instalar esta librería
 
 # Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
@@ -28,11 +28,19 @@ pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
 
+    # Convertir el archivo PDF en imágenes para visualizarlo
+    pdf_images = convert_from_bytes(pdf_file.read())
+
+    # Mostrar el PDF como imágenes
+    st.write("### Vista previa del PDF")
+    for page_number, image in enumerate(pdf_images):
+        st.image(image, caption=f"Página {page_number + 1}", use_column_width=True)
+
     # Mostrar el contenido del PDF como ejemplo (puedes eliminar esto si no lo deseas)
     contenido_paginas = procesar_pdf(pdf_file)
     
     for i, pagina in enumerate(contenido_paginas):
-        print(f"Página {i}:") # layout
+        print(f"Página {i}:")  # layout
         print(pagina)  # Muestra el texto extraído de la página
 
     # Botón para procesar el PDF (en caso de que se desee realizar alguna acción adicional)
@@ -94,4 +102,10 @@ if pdf_file is not None:
         else:
             st.write("No se ha seleccionado ninguna letra.")
 
-        
+    # Botón de descarga para el archivo PDF
+    st.download_button(
+        label="Descargar PDF",
+        data=pdf_file,
+        file_name="archivo.pdf",
+        mime="application/pdf"
+    )
