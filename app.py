@@ -68,9 +68,6 @@ if pdf_file is not None:
     partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
     st.dataframe(partes_frecuencia_df)
 
-    # Mostrar el PDF como imágenes y desplegar los checkboxes
-    st.write("### Vista previa del PDF")
-
     for page_number, (img_byte_array, partes_mayusculas) in enumerate(zip(pdf_images, partes_por_pagina)):
         # Mostrar los checkboxes para cada letra mayúscula
         st.write(f"### Partes encontradas en el Layout {page_number}:")
