@@ -70,7 +70,7 @@ if pdf_file is not None:
 
     for page_number, (img_byte_array, partes_mayusculas) in enumerate(zip(pdf_images, partes_por_pagina)):
         # Mostrar los checkboxes para cada letra mayúscula
-        st.write(f"### Partes encontradas en el Layout {page_number}:")
+        st.write(f"### Checklist del Layout #{page_number}:")
         for i, parte in enumerate(partes_mayusculas):
             # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
             if st.checkbox(f"{parte}", key=f"parte_{page_number}_{i}"):
