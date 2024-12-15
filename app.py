@@ -86,6 +86,8 @@ if pdf_file is not None:
         partes_frecuencia.update(partes_mayusculas)
         partes_por_pagina.append(partes_mayusculas)
 
+    st.write(partes_frecuencia)
+
     # Estilo y colores en la tabla de frecuencias
     if st.button("Mostrar Frecuencia de Partes seleccionadas"):
         letras_seleccionadas_frecuencia = Counter(letras_seleccionadas)
