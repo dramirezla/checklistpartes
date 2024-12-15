@@ -58,6 +58,7 @@ if pdf_file is not None:
 
     # Mostrar el PDF como imágenes y desplegar los checkboxes
     st.write("### Vista previa del PDF")
+    st.write(partes_frecuencia)
 
     partes_por_pagina = []  # Lista para almacenar las partes encontradas por cada página
     letras_seleccionadas = []  # Lista para almacenar las letras seleccionadas
@@ -86,7 +87,7 @@ if pdf_file is not None:
         partes_frecuencia.update(partes_mayusculas)
         partes_por_pagina.append(partes_mayusculas)
 
-    st.write(partes_frecuencia)
+    
 
     # Estilo y colores en la tabla de frecuencias
     if st.button("Mostrar Frecuencia de Partes seleccionadas"):
