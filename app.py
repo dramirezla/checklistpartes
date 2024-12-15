@@ -50,11 +50,16 @@ if pdf_file is not None:
     # Procesar el contenido del PDF (extraer texto)
     contenido_paginas = procesar_pdf(pdf_file)
 
+    # Inicializar frecuencias y mostrar tabla al principio
+    partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
+    st.write("### Frecuencia inicial de las partes encontradas:")
+    partes_frecuencia_df = {letra: frecuencia for letra, frecuencia in partes_frecuencia.items()}
+    st.dataframe(partes_frecuencia_df)
+
     # Mostrar el PDF como imágenes y desplegar los checkboxes
     st.write("### Vista previa del PDF")
 
     partes_por_pagina = []  # Lista para almacenar las partes encontradas por cada página
-    partes_frecuencia = Counter()  # Diccionario para contar la frecuencia de cada letra
     letras_seleccionadas = []  # Lista para almacenar las letras seleccionadas
 
     for page_number, (img_byte_array, texto_pagina) in enumerate(zip(pdf_images, contenido_paginas)):
@@ -89,3 +94,4 @@ if pdf_file is not None:
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
+
