@@ -7,7 +7,6 @@ from pdf2image import convert_from_bytes  # Necesitarás instalar esta librería
 import fitz  # PyMuPDF
 
 # Función para procesar el archivo PDF
-# Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
     # Leer el archivo PDF
     reader = fitz.open(pdf_file)
@@ -59,9 +58,6 @@ if pdf_file is not None:
     letras_seleccionadas = []  # Lista para almacenar las letras seleccionadas
 
     for page_number, (img_byte_array, texto_pagina) in enumerate(zip(pdf_images, contenido_paginas)):
-        # Mostrar la imagen de la página
-        st.image(img_byte_array, caption=f"Layout {page_number}", use_container_width=True)
-
         # Dividir el contenido usando "Kerf" como punto de corte
         partes_pagina_dividida = texto_pagina.split("Kerf: ", 1)  # Dividir en dos partes; antes y después de "Kerf"
         
@@ -78,6 +74,9 @@ if pdf_file is not None:
             if st.checkbox(f"{parte}", key=f"parte_{page_number}_{i}"):
                 letras_seleccionadas.append(parte)
 
+        # Mostrar la imagen de la página
+        st.image(img_byte_array, caption=f"Layout {page_number}", use_container_width=True)
+
         # Actualizar la frecuencia de las partes mayúsculas
         partes_frecuencia.update(partes_mayusculas)
         partes_por_pagina.append(partes_mayusculas)
@@ -90,4 +89,3 @@ if pdf_file is not None:
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
-
