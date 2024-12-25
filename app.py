@@ -17,6 +17,7 @@ def procesar_pdf(pdf_file):
     return contenido_paginas
 
 # Función para convertir el PDF en imágenes
+# Función para convertir PDF a imágenes
 def mostrar_pdf_como_imagen(pdf_file):
     pdf_bytes = pdf_file.read()
     pdf_images = convert_from_bytes(pdf_bytes)
