@@ -5,6 +5,8 @@ import re
 import streamlit as st
 from pdf2image import convert_from_bytes  # Necesitarás instalar esta librería
 
+
+
 # Función para procesar el archivo PDF (Extraer texto)
 def procesar_pdf(pdf_file):
     reader = PdfReader(pdf_file)
