@@ -4,33 +4,35 @@ from collections import Counter
 import re
 import streamlit as st
 from pdf2image import convert_from_bytes  # Necesitarás instalar esta librería
+import fitz  # PyMuPDF
 
-
-
-# Función para procesar el archivo PDF (Extraer texto)
+# Función para procesar el archivo PDF
 def procesar_pdf(pdf_file):
-    reader = PdfReader(pdf_file)
+    # Leer el archivo PDF
+    reader = fitz.open(pdf_file)
     contenido_paginas = []
     
-    for page in reader.pages:
-        texto = page.extract_text() or ""
+    for page_num in range(reader.page_count):
+        page = reader.load_page(page_num)  # Cargar la página
+        texto = page.get_text()  # Extraer texto de la página
         contenido_paginas.append(texto)
     
     return contenido_paginas
 
 # Función para convertir el PDF en imágenes
-# Función para convertir PDF a imágenes
 def mostrar_pdf_como_imagen(pdf_file):
-    pdf_bytes = pdf_file.read()
-    pdf_images = convert_from_bytes(pdf_bytes)
-    pdf_images_bytes = []
+    # Abrir el archivo PDF con PyMuPDF
+    pdf_document = fitz.open(pdf_file)
     
-    for img in pdf_images:
-        img_byte_array = io.BytesIO()
-        img.save(img_byte_array, format="PNG")
-        pdf_images_bytes.append(img_byte_array.getvalue())
+    # Convertir cada página a imagen
+    pdf_images = []
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)  # Cargar la página
+        pix = page.get_pixmap()  # Convertir la página a imagen
+        img_byte_array = pix.tobytes("png")  # Convertir la imagen a bytes
+        pdf_images.append(img_byte_array)
     
-    return pdf_images_bytes
+    return pdf_images
 
 # Crear la interfaz de usuario en Streamlit
 st.title("Sube tu archivo PDF para procesar")
@@ -42,7 +44,7 @@ pdf_file = st.file_uploader("Elige un archivo PDF", type="pdf")
 if pdf_file is not None:
     st.write("Archivo subido correctamente")
 
-    # Convertir el archivo PDF en imágenes usando pdf2image
+    # Convertir el archivo PDF en imágenes usando PyMuPDF
     pdf_images = mostrar_pdf_como_imagen(pdf_file)
 
     # Procesar el contenido del PDF (extraer texto)
@@ -70,6 +72,7 @@ if pdf_file is not None:
         # Mostrar los checkboxes para cada letra mayúscula
         st.write(f"### Checklist del Layout #{page_number}:")
         for i, parte in enumerate(partes_mayusculas):
+            # Hacer que cada parte sea un checkbox con una clave única usando el índice 'i'
             if st.checkbox(f"{parte}", key=f"parte_{page_number}_{i}"):
                 letras_seleccionadas.append(parte)
 
@@ -84,3 +87,4 @@ if pdf_file is not None:
             st.dataframe(letras_seleccionadas_frecuencia)
         else:
             st.write("No se ha seleccionado ninguna letra.")
+
